@@ -55,7 +55,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		StringBuilder sb = new StringBuilder(str);
-		String charsToRemove = "!@#$%^&*:()_+-=?><;][]\" ";
+		String charsToRemove = "!@#$%^&*:()_+-=?><;][]\"";
 		for (int i = sb.length() - 1; i >= 0; i--) {
             if (charsToRemove.indexOf(sb.charAt(i)) != -1) {
                 sb.deleteCharAt(i);
