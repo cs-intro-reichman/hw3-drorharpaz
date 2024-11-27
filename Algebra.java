@@ -20,6 +20,7 @@ public class Algebra {
    		//System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		//ystem.out.println(pow(5,3));      // 5^3
    		//System.out.println(pow(3,5));      // 3^5
+		//System.out.println(pow(3,-5));      // 3^5
 		//System.out.println(pow(-5,3));      // 5^3
    		//System.out.println(div(12,3));   // 12 / 3    
    		//System.out.println(div(5,5));    // 5 / 5  
@@ -30,6 +31,7 @@ public class Algebra {
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
+		System.out.println(sqrt(8));
 	}  
 
 	// Returns x1 + x2
@@ -88,6 +90,10 @@ public class Algebra {
 			return div(1, pow(x, Math.abs(n)));	
 		}*/
 		int sum = x;
+		if (n == 0)
+		{
+			return 1;
+		}
 		if (n > 0) {
 			for (int i = 1; i < n; i++)
 			{
@@ -104,7 +110,13 @@ public class Algebra {
 		{
 			x1 = minus(x1, x2);
 		}
-		return counter;
+		if (x1 < 0 && x2 < 0 || x1 > 0 && x2 > 0)
+		{
+			return counter;
+		} else 
+		{
+			return -counter;
+		}
 	}
 
 	// Returns x1 % x2
@@ -119,7 +131,17 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		int counter = 1;
-		for (counter = 1;(counter != div(x, counter)) && (counter < div(x, counter)); counter++){}
-		return counter;
+		if (counter == 0)
+		{
+			return 0;
+		} else
+		{
+			while (times(counter, counter) <= x)
+			{
+				counter ++;
+			}
+		}
+		//for (counter = 1;(counter != div(x, counter)) && (counter < div(x, counter)); counter++){}
+		return (int)minus(counter, 1);
 	}	  	  
 }
