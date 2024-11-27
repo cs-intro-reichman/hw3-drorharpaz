@@ -49,7 +49,7 @@ public class LoanCalc {
 		double endBalance = loan;
 		double payment;
 		int MyCounter = 0;
-		for (payment = loan + epsilon / n;endBalance + epsilon > 0; payment += epsilon)
+		for (payment = (loan / n) + epsilon;endBalance + epsilon > 0; payment += epsilon)
 		{
 			endBalance = endBalance(loan, rate, n, payment);
 			iterationCounter ++;
