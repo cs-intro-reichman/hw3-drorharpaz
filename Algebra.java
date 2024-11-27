@@ -6,11 +6,11 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-	    //System.out.println(plus(2,-3));   // 2 + 3
-		//System.out.println(plus(-2,-3));   // -5
-		//System.out.println(plus(-2,3));   // 1
-	    //System.out.println(minus(7,-2));  // 9
-		//System.out.println(minus(-7,2));  // -9
+	    System.out.println(plus(2,-3));   // 2 + 3
+		System.out.println(plus(-2,-3));   // -5
+		System.out.println(plus(-2,3));   // 1
+	    System.out.println(minus(7,-2));  // 9
+		System.out.println(minus(-7,2));  // -9
    		//System.out.println(minus(2,7));  // 2 - 7
  		//System.out.println(times(3,4));  // 12
 		//System.out.println(times(2,4));  // 8
@@ -22,16 +22,16 @@ public class Algebra {
    		//System.out.println(pow(3,5));      // 3^5
 		//System.out.println(pow(3,-5));      // 3^5
 		//System.out.println(pow(-5,3));      // 5^3
-   		//System.out.println(div(12,3));   // 12 / 3    
-   		//System.out.println(div(5,5));    // 5 / 5  
+   		//System.out.println(div(12,-3));   // 12 / 3    
+   		//System.out.println(div(-5,5));    // 5 / 5  
 		//System.out.println(div(10,3));    // 3
    		//System.out.println(div(25,7));   // 25 / 7
    		//System.out.println(mod(25,7));   // 25 % 7 = 4
    		//System.out.println(mod(120,6));  // 120 % 6 = 0  
-   		System.out.println(sqrt(36));
-		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123));
-		System.out.println(sqrt(8));
+   		//System.out.println(sqrt(36));
+		//System.out.println(sqrt(263169));
+   		//System.out.println(sqrt(76123));
+		//System.out.println(sqrt(8));
 	}  
 
 	// Returns x1 + x2
@@ -39,7 +39,7 @@ public class Algebra {
 		int sum = x1;
 		if (x2 < 0)
 		{
-			return minus(x1, x2);
+			return minus(x1, -x2);
 		}
 		for (int i = 0; i < x2; i++){
 			sum ++;
@@ -106,11 +106,12 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		int counter = 0;
-		for (counter = 0;x1 >= x2; counter++) 
+		int y1 = Math.abs(x1), y2 = Math.abs(x2);
+		for (counter = 0;y1 >= y2; counter++) 
 		{
-			x1 = minus(x1, x2);
+			y1 = minus(y1, y2);
 		}
-		if (x1 < 0 && x2 < 0 || x1 > 0 && x2 > 0)
+		if ((x1 < 0 && x2 < 0) || (x1 > 0 && x2 > 0))
 		{
 			return counter;
 		} else 
